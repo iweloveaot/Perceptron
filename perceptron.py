@@ -20,7 +20,7 @@ class SingleLayerPerceptron:
         self.v_b = 0.0
 
     def sigmoid(self, z):
-        return 1 / (1 + np.exp(-z))
+        return 1 / (1 + np.exp(-np.clip(z, -250, 250)))
 
     def forward(self, X):
         return self.sigmoid(np.dot(X, self.w) + self.b)
