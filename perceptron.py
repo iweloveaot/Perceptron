@@ -3,6 +3,7 @@ import numpy as np
 
 class SingleLayerPerceptron:
     def __init__(self, n_features, w_init_type="small", loss="bce", l2=0.0):
+        np.random.seed(42)
         self.n_features = n_features
         self.w = []
         if w_init_type == "zeros":
@@ -40,6 +41,7 @@ class SingleLayerPerceptron:
         return loss + l2_reg
 
     def fit(self, X_train, y_train, X_val, y_val, epochs, lr, batch_size, beta=0.0):
+        np.random.seed(42)
         for epoch in range(epochs):
             n_samples = X_train.shape[0]
 
@@ -58,7 +60,7 @@ class SingleLayerPerceptron:
                 elif self.loss == "hinge":
                     y_true = np.where(y_train_batch <= 0, -1, 1)
                     mask = (y_true * z) < 1
-                    dz = y_true * mask
+                    dz = -y_true * mask
                 else:
                     raise ValueError("undefined loss type")
 
@@ -74,6 +76,9 @@ class SingleLayerPerceptron:
             self.loss_history['val_loss'].append(self.compute_loss(X_val, y_val))
 
     def predict(self, X):
+        if self.loss == 'hinge':
+            z = np.dot(X, self.w) + self.b
+            return np.where(z > 0, 1, 0)
         y_pred = self.forward(X)
         res = np.array(y_pred >= 0.5, int)
         return res

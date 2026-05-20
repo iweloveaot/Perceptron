@@ -22,15 +22,15 @@ perc.fit(X_train, y_train, X_test, y_test, 100, 0.1, 32)
 y_pred = perc.predict(X_test)
 
 # 3.2
-loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"])
+loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], "first_model.png")
 
 # 3.3
 train_acc = accuracy_score(y_train, perc.predict(X_train))
 test_acc = accuracy_score(y_test, y_pred)
-print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}')
+print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}\n')
 
 # 3.4
-dividing_line_graph(X, y, perc)
+dividing_line_graph(X, y, perc, "first_dividing_line.png")
 
 # 4
 n_experiment(X_train, X_test, y_train, y_test)
@@ -40,7 +40,7 @@ w_experiment(X_train, X_test, y_train, y_test)
 
 # Дополнительные задания
 # 1
-print('=== Обучение на сгенерированных синтетических данных ===')
+print('\n=== Обучение на сгенерированных синтетических данных ===')
 data_type = [('linear', '=== Линейно разделимые данные ==='), ('circle', '=== Окружность ==='), ('xor', '=== XOR ===')]
 for elem in data_type:
     print(elem[1])
@@ -54,11 +54,11 @@ for elem in data_type:
     perc.fit(X_train, y_train, X_test, y_test, 100, 0.1, 32)
     y_pred = perc.predict(X_test)
 
-    loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], "linear_data.png")
+    loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], f'{elem[0]}_data')
 
     train_acc = accuracy_score(y_train, perc.predict(X_train))
     test_acc = accuracy_score(y_test, y_pred)
-    print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}')
+    print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}\n')
     dividing_line_graph(X, y, perc, f'dividing_{elem[0]}')
 
 # 2
@@ -74,9 +74,7 @@ print("Обучение с бинарной кросс-энтропией")
 perc = SingleLayerPerceptron(2, loss="bce")
 perc.fit(X_train, y_train, X_test, y_test, 100, 0.1, 32)
 y_pred = perc.predict(X_test)
-print(y_test)
-print(y_pred)
-loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"])
+loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], "bce_loss")
 train_acc = accuracy_score(y_train, perc.predict(X_train))
 test_acc = accuracy_score(y_test, y_pred)
 print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}\nЛосс: {perc.loss_history["train_loss"][-1]} {perc.loss_history["val_loss"][-1]}')
@@ -86,12 +84,10 @@ print("Обучение с hinge loss")
 perc = SingleLayerPerceptron(2, loss="hinge")
 perc.fit(X_train, y_train, X_test, y_test, 100, 0.1, 32)
 y_pred = perc.predict(X_test)
-print(y_test)
-print(y_pred)
-loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"])
+loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], "hinge_loss")
 train_acc = accuracy_score(y_train, perc.predict(X_train))
 test_acc = accuracy_score(y_test, y_pred)
-print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}\nЛосс: {perc.loss_history["train_loss"][-1]} {perc.loss_history["val_loss"][-1]}')
+print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}\nЛосс: {perc.loss_history["train_loss"][-1]} {perc.loss_history["val_loss"][-1]}\n')
 dividing_line_graph(X, y, perc)
 
 l2s = [0.0, 0.001, 0.1, 2, 10]
@@ -100,14 +96,12 @@ for l2 in l2s:
     perc = SingleLayerPerceptron(2, l2=l2)
     perc.fit(X_train, y_train, X_test, y_test, 100, 0.1, 32)
     y_pred = perc.predict(X_test)
-    print(y_test)
-    print(y_pred)
-    loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"])
+    loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], f"loss_with_l2_{l2}.png")
     train_acc = accuracy_score(y_train, perc.predict(X_train))
     test_acc = accuracy_score(y_test, y_pred)
     print(
         f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}\nЛосс: {perc.loss_history["train_loss"][-1]} {perc.loss_history["val_loss"][-1]}')
-    dividing_line_graph(X, y, perc)
+    dividing_line_graph(X, y, perc, f"dividing_with_l2_{l2}.png")
     print()
 
 # 3
@@ -119,7 +113,7 @@ y_prob = perc.forward(X_test)
 print(f'Precision score: {precision_score(y_test, y_pred):.4f}')
 print(f'Recall score: {recall_score(y_test, y_pred):.4f}')
 print(f'F1-score: {f1_score(y_test, y_pred):.4f}')
-print(f'ROC-AUC score: {roc_auc_score(y_test, y_prob):.4f}')
+print(f'ROC-AUC score: {roc_auc_score(y_test, y_prob):.4f}\n')
 
 fpr, tpr, _ = roc_curve(y_test, y_prob)
 plt.figure(figsize=(13, 13))
@@ -130,6 +124,7 @@ plt.ylabel('True Positive Rate')
 plt.title('ROC Curve')
 plt.grid()
 plt.legend()
+plt.savefig("roc.png")
 plt.show()
 plt.close()
 
@@ -142,6 +137,7 @@ plt.xlabel('Признак 1')
 plt.ylabel('Признак 2')
 plt.legend()
 plt.grid()
+plt.savefig("errors.png")
 plt.show()
 plt.close()
 
@@ -153,7 +149,7 @@ for beta in betas:
     perc.fit(X_train, y_train, X_test, y_test, 100, 0.1, 32, beta=beta)
     y_pred = perc.predict(X_test)
 
-    loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"])
+    loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], f"loss_beta_{beta}.png")
 
     train_acc = accuracy_score(y_train, perc.predict(X_train))
     test_acc = accuracy_score(y_test, y_pred)
@@ -189,12 +185,12 @@ perc = SingleLayerPerceptron(2)
 perc.fit(X_train, y_train, X_test, y_test, 100, best_params[0], best_params[1])
 y_pred = perc.predict(X_test)
 
-loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"])
+loss_graph(perc.loss_history["train_loss"], perc.loss_history["val_loss"], "final_model.png")
 
 train_acc = accuracy_score(y_train, perc.predict(X_train))
 test_acc = accuracy_score(y_test, y_pred)
 print(f'Точность на обучающей выборке: {train_acc}\nТочность на тестовой выборке: {test_acc}')
 
-dividing_line_graph(X, y, perc)
+dividing_line_graph(X, y, perc, "final_dividing_line.png")
 
 
