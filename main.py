@@ -192,7 +192,3 @@ print(f'Точность на обучающей выборке: {train_acc}\nТ
 dividing_line_graph(X, y, perc)
 
 
-
-
-TODO: "!!!!!!!!!!!!!!! добавить random_seed !!!!!!!!!!!!!!!"
-
