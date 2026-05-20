@@ -59,16 +59,16 @@
 <img width="1086" height="192" alt="image" src="https://github.com/user-attachments/assets/03e9bc13-f29d-4b16-9a7e-da7d438d7d1c" />
 
 - Эксперимент с размером батча (1, 16, 64, 256):
-<img width="1300" height="1300" alt="batch_size_experiment_1" src="https://github.com/user-attachments/assets/0ca222a2-4021-4176-a9ca-e433f932091b" />
-<img width="1300" height="1300" alt="batch_size_experiment_2" src="https://github.com/user-attachments/assets/5f986241-7f79-4b39-b09e-84fbcc028399" />
-<img width="1300" height="1300" alt="batch_size_experiment_3" src="https://github.com/user-attachments/assets/f5b22626-e929-4dd5-9bbe-ac51e3699cdd" />
-<img width="1300" height="1300" alt="batch_size_experiment_4" src="https://github.com/user-attachments/assets/63eba5b4-de26-4ef4-8360-24aacff25095" />
+<img width="1000" height="1000" alt="batch_size_experiment_1" src="https://github.com/user-attachments/assets/0ca222a2-4021-4176-a9ca-e433f932091b" />
+<img width="1000" height="1000" alt="batch_size_experiment_2" src="https://github.com/user-attachments/assets/5f986241-7f79-4b39-b09e-84fbcc028399" />
+<img width="1000" height="1000" alt="batch_size_experiment_3" src="https://github.com/user-attachments/assets/f5b22626-e929-4dd5-9bbe-ac51e3699cdd" />
+<img width="1000" height="1000" alt="batch_size_experiment_4" src="https://github.com/user-attachments/assets/63eba5b4-de26-4ef4-8360-24aacff25095" />
 <img width="1084" height="191" alt="image" src="https://github.com/user-attachments/assets/9718fbb9-12d5-41c0-b225-87a67c0e85c5" />
 
 - Эксперимент с инициализацией весов (нулевые, маленькие, от 1 до 10):
-<img width="1300" height="1300" alt="weight_init_experiment_1" src="https://github.com/user-attachments/assets/8cce0f47-0725-4879-987b-484ee38db1e7" />
-<img width="1300" height="1300" alt="weight_init_experiment_2" src="https://github.com/user-attachments/assets/f5901b5a-5f42-4da6-a67e-c19e52f986d7" />
-<img width="1300" height="1300" alt="weight_init_experiment_3" src="https://github.com/user-attachments/assets/8b045cc7-1988-4efc-9325-858a5808f9a7" />
+<img width="1000" height="1000" alt="weight_init_experiment_1" src="https://github.com/user-attachments/assets/8cce0f47-0725-4879-987b-484ee38db1e7" />
+<img width="1000" height="1000" alt="weight_init_experiment_2" src="https://github.com/user-attachments/assets/f5901b5a-5f42-4da6-a67e-c19e52f986d7" />
+<img width="1000" height="1000" alt="weight_init_experiment_3" src="https://github.com/user-attachments/assets/8b045cc7-1988-4efc-9325-858a5808f9a7" />
 <img width="1110" height="258" alt="image" src="https://github.com/user-attachments/assets/d75c9b43-d4a8-4d41-8b81-02a52f914d1d" />
 
 - Эксперимент с различным распределением данных в пространстве:
@@ -82,10 +82,10 @@
 <img width="2343" height="1131" alt="image" src="https://github.com/user-attachments/assets/1aa6474c-6f12-41b2-a1ac-fc2eead7a3db" />
 
 - Эксперимент с l2-регулязацией (0,0.001, 0.1, 2, 10):
-<img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/b95744ce-34a5-4b11-8cca-4c2fb5ebead8" />
-<img width="1300" height="1300" alt="loss_with_l2_0 001" src="https://github.com/user-attachments/assets/ef566afd-1409-41ee-879a-db6a9641e73f" />
-<img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/3573b9d9-eb8a-4e2f-94f6-25c1d18f5f9c" />
-<img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/7adb2bb5-0337-49e7-b9ef-a0b07304a2f3" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/b95744ce-34a5-4b11-8cca-4c2fb5ebead8" />
+<img width="1000" height="1000" alt="loss_with_l2_0 001" src="https://github.com/user-attachments/assets/ef566afd-1409-41ee-879a-db6a9641e73f" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/3573b9d9-eb8a-4e2f-94f6-25c1d18f5f9c" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/7adb2bb5-0337-49e7-b9ef-a0b07304a2f3" />
 <img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/b0b18f28-8826-47c3-9d13-51dfad9aaa0f" />
 
 - Различные метрики, ROC-прямая и неправильно вычисленные значения:
@@ -93,10 +93,10 @@
 <img width="2310" height="1111" alt="image" src="https://github.com/user-attachments/assets/1ddbbc42-5a1f-45fd-a5d4-ff00cbc5962c" />
 
 - Исследование сходимости градиентного спуска (beta = 0, 0.5, 0.9, 0.99):
-<img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/19907c21-a04c-4b37-b41f-a80aafe2b12d" />
-<img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/b32a94fe-9ba1-4dae-a868-bd586db15368" />
-<img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/3e63bb04-752f-4dcc-adec-bf6f0dc69127" />
-<img width="1300" height="1300" alt="image" src="https://github.com/user-attachments/assets/8d70f314-0909-4eaa-8591-477214882424" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/19907c21-a04c-4b37-b41f-a80aafe2b12d" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/b32a94fe-9ba1-4dae-a868-bd586db15368" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/3e63bb04-752f-4dcc-adec-bf6f0dc69127" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/8d70f314-0909-4eaa-8591-477214882424" />
 
 - Пятикратная кросс-валидация, подбор лучших гиперпараметров и финальная модель
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/19828b8c-d3e8-41d3-9107-c2285f6f5a33" />
