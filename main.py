@@ -63,6 +63,13 @@ for elem in data_type:
     dividing_line_graph(X, y, perc, f'dividing_{elem[0]}')
 
 # 2
+X, y = make_classification(n_samples=500, n_features=2, n_redundant=0, n_informative=2, random_state=42,
+                           n_clusters_per_class=1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, train_size=0.7, random_state=42, stratify=y)
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
 print('=== Сравнение бинарной кросс-энтропии и hinge loss ===')
 print("Обучение с бинарной кросс-энтропией")
 perc = SingleLayerPerceptron(2, loss="bce")
